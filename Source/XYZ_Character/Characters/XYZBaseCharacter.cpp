@@ -262,9 +262,9 @@ void AXYZBaseCharacter::TraceLineOfSight()
 	FHitResult HitResult;
 	GetWorld()->LineTraceSingleByChannel(HitResult, ViewLocation, TraceEnd, ECC_Visibility);
 
-	if (LineOfSightObject.GetObject() != HitResult.Actor)
+	if (LineOfSightObject.GetObject() != HitResult.GetActor())
 	{
-		LineOfSightObject = HitResult.Actor.Get();
+		LineOfSightObject = HitResult.GetActor();
 
 		FName ActionName;
 		if (LineOfSightObject.GetInterface())
@@ -347,7 +347,7 @@ void AXYZBaseCharacter::Landed(const FHitResult& Hit)
 	if (IsValid(FallDamageCurve))
 	{
 		float DamageAmount = FallDamageCurve->GetFloatValue(FallHeight);
-		TakeDamage(DamageAmount, FDamageEvent(), GetController(), Hit.Actor.Get());
+		TakeDamage(DamageAmount, FDamageEvent(), GetController(), Hit.GetActor());
 	}
 }
 

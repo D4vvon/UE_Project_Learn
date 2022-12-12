@@ -242,7 +242,7 @@ void UCharacterEquipmentComponent::BeginPlay()
 
 void UCharacterEquipmentComponent::CreateViewWidget(APlayerController* PlayerController)
 {
-	checkf(!IsValid(ViewWidgetClass), TEXT("UCharacterEquipmentComponent::CreateViewWidget view widget class"));
+	//checkf(!IsValid(ViewWidgetClass), TEXT("UCharacterEquipmentComponent::CreateViewWidget view widget class"));
 
 	if (!IsValid(PlayerController))
 	{
